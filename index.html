@@ -489,16 +489,6 @@
   .testimonials{ background:#ECE2CC; padding:80px 0 48px; }
   .contact-section.starfield{ background:linear-gradient(180deg, #E6DAC1 0%, #E1D4B9 100%); padding:48px 0 80px; }
   footer{ background:#DDD0B3; padding-top:32px; }
-  /* HERO FEATHER - soft flowing light feather behind the profile image */
-  .hero-feather{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; display:block;
-    opacity:.85; filter:blur(0.6px);
-    -webkit-mask-image:linear-gradient(to right, transparent 0%, transparent 40%, #000 56%, #000 100%);
-            mask-image:linear-gradient(to right, transparent 0%, transparent 40%, #000 56%, #000 100%); }
-  .hero > .wrap{ position:relative; z-index:1; }
-  @media (max-width: 980px){
-    .hero-feather{ -webkit-mask-image:linear-gradient(to bottom, #000 0%, #000 60%, transparent 78%);
-                           mask-image:linear-gradient(to bottom, #000 0%, #000 60%, transparent 78%); }
-  }
 </style>
 </head>
 <body onclick="">
@@ -525,7 +515,6 @@
 </header>
 
 <section class="hero starfield" id="home">
-  <canvas class="hero-feather" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
@@ -1133,92 +1122,6 @@
       }
     });
   });
-  // HERO FEATHER - slow, looping feathers of soft light curving around the profile image
-  (function(){
-    const hero = document.getElementById('home');
-    const canvas = hero && hero.querySelector('.hero-feather');
-    const ring = hero && hero.querySelector('.photo-ring');
-    if (!canvas || !ring || !canvas.getContext) return;
-    const ctx = canvas.getContext('2d');
-    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const TAU = Math.PI * 2, T = 24; // every motion repeats exactly on this cycle, so the loop is seamless
-    let W = 0, H = 0, dpr = 1, cx = 0, cy = 0, d = 300, running = false, visible = true, raf = 0;
-    let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-    const COLORS = ['150,176,218', '190,208,236', '172,158,198', '214,226,244'];
-    // feather paths in units of the ring diameter, relative to the ring centre (base, bend control, tip)
-    const FEATHERS = [
-      { b: [-0.30, 0.50], c: [-0.98, 0.02], p: [-0.12, -0.66], w: 0.26, ph: 0 },
-      { b: [ 0.34, 0.46], c: [ 0.92, -0.10], p: [ 0.20, -0.58], w: 0.21, ph: 2.1 }
-    ].map(f => {
-      f.barbs = [];
-      for (let side = -1; side <= 1; side += 2){
-        for (let i = 0, N = 46; i < N; i++){
-          const u = 0.05 + 0.93 * (i / (N - 1)) + (rnd() - 0.5) * 0.015;
-          f.barbs.push({ u, side, prof: Math.pow(Math.sin(Math.PI * Math.min(1, u * 1.06)), 0.7) * (0.8 + rnd() * 0.35),
-            ang: 0.5 + 0.45 * u + rnd() * 0.14, curl: 0.15 + rnd() * 0.25, k: rnd() < 0.5 ? 1 : 2,
-            ph: rnd() * TAU, c: COLORS[Math.floor(rnd() * COLORS.length)], a: 0.22 + rnd() * 0.22 });
-        }
-      }
-      f.sparks = [];
-      for (let i = 0; i < 12; i++) f.sparks.push({ off: rnd(), k: rnd() < 0.6 ? 1 : 2, side: rnd() < 0.5 ? -1 : 1, dd: 0.05 + rnd() * 0.14, r: 0.7 + rnd() * 1.1, ph: rnd() * TAU });
-      return f;
-    });
-    function layout(){
-      const hr = hero.getBoundingClientRect(), rr = ring.getBoundingClientRect();
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = hr.width; H = hr.height;
-      canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      d = rr.width; cx = rr.left - hr.left + d / 2; cy = rr.top - hr.top + d / 2;
-      if (!running) frame((performance.now() / 1000) % T);
-    }
-    function rotAround(pt, o, a){ const c = Math.cos(a), s = Math.sin(a), x = pt.x - o.x, y = pt.y - o.y; return { x: o.x + x * c - y * s, y: o.y + x * s + y * c }; }
-    function drawFeather(f, ph){
-      const B = { x: cx + f.b[0] * d, y: cy + f.b[1] * d };
-      const sway = 0.07 * Math.sin(ph + f.ph) + 0.025 * Math.sin(2 * ph + f.ph * 1.6);
-      const breathe = 1 + 0.06 * Math.sin(ph + f.ph + 0.8);
-      const C = rotAround({ x: cx + (f.c[0] * breathe) * d, y: cy + f.c[1] * d }, B, sway);
-      const P = rotAround({ x: cx + f.p[0] * d, y: cy + f.p[1] * d }, B, sway);
-      const at = u => { const m = 1 - u; return { x: m*m*B.x + 2*m*u*C.x + u*u*P.x, y: m*m*B.y + 2*m*u*C.y + u*u*P.y }; };
-      const tan = u => { const x = 2*(1-u)*(C.x-B.x) + 2*u*(P.x-C.x), y = 2*(1-u)*(C.y-B.y) + 2*u*(P.y-C.y), l = Math.hypot(x, y) || 1; return { x: x/l, y: y/l }; };
-      const len0 = d * f.w;
-      // soft glow at the quill base, cool core with a faint warm edge
-      const gl = ctx.createRadialGradient(B.x, B.y, 0, B.x, B.y, d * 0.08);
-      gl.addColorStop(0, 'rgba(226,236,250,0.32)'); gl.addColorStop(0.5, 'rgba(170,195,235,0.1)');
-      gl.addColorStop(0.8, 'rgba(225,104,59,0.05)'); gl.addColorStop(1, 'rgba(225,104,59,0)');
-      ctx.fillStyle = gl; ctx.beginPath(); ctx.arc(B.x, B.y, d * 0.08, 0, TAU); ctx.fill();
-      ctx.lineCap = 'round'; ctx.lineWidth = 1;
-      for (const b of f.barbs){
-        const o = at(b.u), tn = tan(b.u);
-        const a = -b.side * (b.ang + 0.07 * Math.sin(b.k * ph + b.ph) + 0.03 * Math.sin((b.k + 1) * ph + b.ph * 1.7));
-        const c = Math.cos(a), s = Math.sin(a), dv = { x: tn.x * c - tn.y * s, y: tn.x * s + tn.y * c };
-        const len = len0 * b.prof, nx = -dv.y * b.side, ny = dv.x * b.side;
-        ctx.strokeStyle = 'rgba(' + b.c + ',' + b.a + ')';
-        ctx.beginPath(); ctx.moveTo(o.x, o.y);
-        ctx.quadraticCurveTo(o.x + dv.x * len * 0.55 - nx * len * b.curl, o.y + dv.y * len * 0.55 - ny * len * b.curl, o.x + dv.x * len, o.y + dv.y * len);
-        ctx.stroke();
-      }
-      ctx.strokeStyle = 'rgba(240,245,252,0.75)'; ctx.lineWidth = 1.3;
-      ctx.beginPath(); ctx.moveTo(B.x, B.y); ctx.quadraticCurveTo(C.x, C.y, P.x, P.y); ctx.stroke();
-      for (const sp of f.sparks){
-        const p = (ph / TAU * sp.k + sp.off) % 1, u = 0.15 + 0.8 * p, o = at(u), tn = tan(u);
-        const off = d * (sp.dd + 0.03 * Math.sin(ph * sp.k + sp.ph));
-        const x = o.x - tn.y * off * sp.side, y = o.y + tn.x * off * sp.side, al = Math.sin(Math.PI * p) * 0.6;
-        const g = ctx.createRadialGradient(x, y, 0, x, y, sp.r * 3);
-        g.addColorStop(0, 'rgba(236,146,86,' + al + ')'); g.addColorStop(1, 'rgba(236,146,86,0)');
-        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, sp.r * 3, 0, TAU); ctx.fill();
-      }
-    }
-    function frame(time){ ctx.clearRect(0, 0, W, H); const ph = TAU * time / T; for (const f of FEATHERS) drawFeather(f, ph); }
-    function loop(now){ if (!running) return; frame((now / 1000) % T); raf = requestAnimationFrame(loop); }
-    function start(){ if (running || reduce || !visible || document.hidden) return; running = true; raf = requestAnimationFrame(loop); }
-    function stop(){ running = false; cancelAnimationFrame(raf); }
-    layout();
-    if ('ResizeObserver' in window){ const ro = new ResizeObserver(layout); ro.observe(hero); ro.observe(ring); } else { window.addEventListener('resize', layout); }
-    if ('IntersectionObserver' in window){ new IntersectionObserver(en => { visible = en[0].isIntersecting; visible ? start() : stop(); }).observe(hero); }
-    document.addEventListener('visibilitychange', () => { document.hidden ? stop() : start(); });
-    start();
-  })();
 </script>
 
 </body>
