@@ -282,6 +282,17 @@
   .about-stats{ display:flex; gap:30px; margin-top:24px; }
   .about-stats div .n{ font-family:'Fraunces',serif; font-weight:700; font-size:24px; color:var(--forest); }
   .about-stats div .l{ font-size:12px; color:var(--ink-soft); margin-top:2px; }
+  .about-founder{ margin:20px 0 4px; padding:18px 20px; background:var(--cream-2); border:1px solid var(--line); border-left:4px solid var(--clay); border-radius:var(--radius-sm); }
+  .about-founder .f-label{ font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--sage-dark); }
+  .about-founder .f-name{ font-family:'Fraunces',serif; font-weight:700; font-size:20px; color:var(--forest); margin-top:4px; }
+  .about-founder .f-role{ font-size:13px; color:var(--clay-dark); font-weight:600; margin:2px 0 10px; }
+  .about-founder p{ margin-bottom:0; }
+  .about-pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+  .about-pillars .pillar{ background:var(--cream-2); border:1px solid var(--line); border-radius:22px; padding:28px 24px; }
+  .about-pillars h3{ font-family:'Fraunces',serif; font-size:20px; color:var(--forest); margin:0 0 12px; }
+  .about-pillars p{ font-size:14px; line-height:1.65; color:var(--ink-soft); margin:0 0 10px; }
+  .about-pillars p:last-child{ margin-bottom:0; }
+  @media (max-width: 980px){ .about-pillars{ grid-template-columns:1fr; gap:16px; margin-top:32px; } }
 
   /* SKILLS - icon-topped cards with checklist */
   .skills{ padding:0 0 84px; }
@@ -542,17 +553,40 @@
 <section class="about" id="about">
   <div class="wrap">
     <div class="about-panel">
-      <div class="about-photo"><img src="hero.jpg" alt="Younas Khan"></div>
+      <div class="about-photo"><img src="hero.jpg" alt="Younas Khan, founder of Veyra Graphics Hub"></div>
       <div class="about-copy">
-        <span class="eyebrow">About me</span>
-        <h2>Hi, I'm Younas</h2>
-        <p>I've spent the last seven years helping brands find a visual language that actually sounds like them — from early-stage startups to studios that just need a refresh.</p>
-        <p>My process starts with listening, not templates — every mark, palette, and layout is shaped around what a project actually needs.</p>
+        <span class="eyebrow">About</span>
+        <h2>About Veyra Graphics Hub</h2>
+        <p>Veyra Graphics Hub is an independent creative design studio founded by Younas Khan.</p>
+        <p>The studio focuses on creating professional, modern, and meaningful visual solutions for businesses, startups, personal brands, and organizations. Its work includes branding, social media design, campaign artwork, editorial design, promotional materials, and other creative visual solutions.</p>
+        <div class="about-founder">
+          <div class="f-label">Founder</div>
+          <div class="f-name">Younas Khan</div>
+          <div class="f-role">Founder &amp; Creative Designer of Veyra Graphics Hub</div>
+          <p>Younas Khan founded Veyra Graphics Hub with the goal of helping brands communicate their ideas through strong, clear, and professional visual design.</p>
+        </div>
         <div class="about-stats">
           <div><div class="n">150+</div><div class="l">Projects shipped</div></div>
           <div><div class="n">40+</div><div class="l">Happy clients</div></div>
           <div><div class="n">7</div><div class="l">Years in design</div></div>
         </div>
+      </div>
+    </div>
+    <div class="about-pillars">
+      <div class="pillar">
+        <h3>Purpose</h3>
+        <p>The purpose of Veyra Graphics Hub is to help businesses and individuals build a stronger visual presence through creative, strategic, and professional design.</p>
+        <p>The studio aims to transform ideas into visual experiences that are clear, memorable, and aligned with each client's goals.</p>
+      </div>
+      <div class="pillar">
+        <h3>Vision</h3>
+        <p>The vision of Veyra Graphics Hub is to become a trusted creative design partner for businesses and personal brands around the world.</p>
+        <p>The goal is to build long-term relationships with clients by delivering thoughtful design, consistent quality, creative solutions, and reliable collaboration.</p>
+      </div>
+      <div class="pillar">
+        <h3>Creative Approach</h3>
+        <p>Every project begins with understanding the client's brand, audience, goals, and message.</p>
+        <p>Rather than using a one-size-fits-all approach, Veyra Graphics Hub develops design solutions that reflect the unique identity and purpose of each brand.</p>
       </div>
     </div>
   </div>
