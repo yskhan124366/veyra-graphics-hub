@@ -1055,11 +1055,16 @@
     toast._hideTimer = setTimeout(() => toast.classList.remove('show'), 4000);
   }
   document.querySelectorAll('.js-email-link').forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
       const email = 'ys.khan124366@gmail.com';
+      const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+      if (!isMobile){
+        e.preventDefault();
+        window.open('https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(email) + '&su=' + encodeURIComponent("Let's work together"), '_blank', 'noopener');
+      }
       if (navigator.clipboard && navigator.clipboard.writeText){
         navigator.clipboard.writeText(email).then(() => {
-          showEmailToast('Opening your email app — address copied: ' + email);
+          showEmailToast('Email copied: ' + email);
         }).catch(() => {
           showEmailToast('Email: ' + email);
         });
