@@ -38,7 +38,7 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon-180.png">
 
-<link rel="preload" as="image" href="hero-portrait.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="work/headphone-poster.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap">
@@ -95,7 +95,7 @@
   a, button{ cursor:pointer; }
   .wrap{max-width:1240px; margin:0 auto; padding:0 32px;}
   .btn{
-    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    white-space:nowrap; display:inline-flex; align-items:center; justify-content:center; gap:8px;
     padding:15px 30px; border-radius:100px; font-weight:700; font-size:15px;
     cursor:pointer; border:none; transition:transform .25s ease, box-shadow .25s ease;
   }
@@ -274,7 +274,7 @@
   .brand-logo{ height:44px; width:auto; display:block; }
   .nav-links{display:flex; align-items:center; gap:8px;}
   .nav-links a{
-    font-size:14.5px; font-weight:700; color:var(--ink-soft); padding:9px 16px; border-radius:100px;
+    white-space:nowrap; font-size:14.5px; font-weight:700; color:var(--ink-soft); padding:9px 16px; border-radius:100px;
     transition:background .2s ease, color .2s ease;
   }
     .nav-links a.active{ background:var(--sage); color:var(--forest); }
@@ -324,6 +324,19 @@
     border:6px solid var(--cream);
   }
   .photo-ring-inner img{ width:100%; height:100%; object-fit:cover; display:block; }
+  /* HERO COLLAGE (agency hero: project work instead of a portrait) */
+  .hero-collage{ display:grid; grid-template-columns:1fr 1fr; gap:14px; width:100%; max-width:440px; padding-bottom:36px; }
+  .hc{ display:block; border-radius:20px; overflow:hidden; aspect-ratio:4/5; background:var(--cream-2); border:1px solid var(--line); box-shadow:0 18px 36px -22px rgba(51,72,47,0.45); }
+  .hc img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
+  .hc-2, .hc-4{ transform:translateY(36px); }
+  .hero-feature{
+    position:absolute; left:0; bottom:-6px; z-index:2; display:flex; align-items:center; gap:12px;
+    background:var(--cream-2); border:1px solid var(--line); border-radius:16px; padding:10px 18px 10px 10px;
+    box-shadow:0 14px 26px -12px rgba(0,0,0,0.25); max-width:calc(100% - 20px);
+  }
+  .hero-feature img{ width:64px; height:48px; border-radius:10px; object-fit:cover; flex-shrink:0; }
+  .hero-feature .hf-l{ display:block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--sage-text); }
+  .hero-feature .hf-t{ display:block; font-family:'Fraunces',serif; font-weight:600; font-size:15px; color:var(--forest); line-height:1.25; }
   .float-badge{
     position:absolute; background:var(--cream-2); border-radius:16px; padding:12px 16px;
     display:flex; align-items:center; gap:10px; box-shadow:0 14px 26px -12px rgba(0,0,0,0.25);
@@ -429,6 +442,31 @@
     display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; color:var(--forest);
   }
 
+  /* CASE STUDIES */
+  .case-studies{ background:#F3EBD9; padding:56px 0 64px; }
+  .cs-card{
+    display:grid; grid-template-columns:1.1fr 1fr; align-items:stretch;
+    background:var(--cream-2); border:1px solid var(--line); border-radius:28px; overflow:hidden;
+    box-shadow:0 24px 44px -30px rgba(15,34,51,0.45);
+  }
+  .cs-media{ position:relative; display:block; min-height:380px; overflow:hidden; background:#E6DED1; }
+  .cs-media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
+  .cs-media .tag{
+    position:absolute; z-index:1; top:16px; left:16px; background:rgba(251,247,236,0.92); color:var(--forest);
+    font-size:11px; font-weight:700; padding:6px 12px; border-radius:100px; text-transform:uppercase; letter-spacing:.04em;
+  }
+  .cs-body{ padding:40px 40px 36px; display:flex; flex-direction:column; align-items:flex-start; }
+  .cs-kicker{ font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--clay-dark); }
+  .cs-body h3{ font-size:30px; color:var(--forest); margin:10px 0 14px; }
+  .cs-body p{ font-size:14.5px; line-height:1.65; color:var(--ink-soft); margin-bottom:16px; }
+  .cs-points{ display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
+  .cs-points li{ display:flex; gap:10px; align-items:flex-start; font-size:13.5px; font-weight:600; color:var(--ink); }
+  .cs-points li::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--sage-dark); margin-top:7px; flex-shrink:0; }
+  .cs-chips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .cs-chips span{ font-size:12px; font-weight:700; color:var(--forest); border:1px solid var(--line); background:var(--cream); padding:6px 12px; border-radius:100px; }
+  .cs-actions{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .cs-meta{ font-size:12.5px; font-weight:700; color:var(--ink-soft); }
+
   /* PROCESS BAND (full width bold band, like Education section) */
   .process-band{ background:var(--sage); padding:70px 0; }
   .process-head{ text-align:center; margin-bottom:44px; }
@@ -519,6 +557,9 @@
   .footer-bottom{ display:flex; align-items:center; justify-content:space-between; padding:26px 6px 0; font-size:13px; color:var(--ink-soft); flex-wrap:wrap; gap:10px; }
 
   @media (max-width: 1180px) and (min-width: 981px){
+    .nav-links{ gap:2px; }
+    .nav-links a{ padding:8px 11px; font-size:14px; }
+    .nav-right > .btn{ padding:12px 20px; font-size:14px; }
     .work-grid{ grid-template-columns:repeat(2,1fr); }
     .video-grid{ grid-template-columns:repeat(2,1fr); }
     .skills-grid{ grid-template-columns:repeat(2,1fr); }
@@ -541,7 +582,12 @@
     .nav-right > .btn{ padding:11px 18px; font-size:13.5px; }
     .hero-grid{grid-template-columns:1fr; gap:60px;}
     .hero-copy h1{font-size:36px;}
-    .hero-visual{ order:-1; }
+    .hero-visual{ order:1; }
+    .hero-collage{ max-width:420px; margin:0 auto; }
+    .cs-card{ grid-template-columns:1fr; }
+    .cs-media{ aspect-ratio:4/3; min-height:0; }
+    .cs-body{ padding:28px 24px 28px; }
+    .cs-body h3{ font-size:26px; }
     .float-badge.top{ top:0; right:0; }
     .about-panel{grid-template-columns:1fr;}
     .skills-grid{grid-template-columns:repeat(2,1fr);}
@@ -557,6 +603,11 @@
   }
   @media (max-width: 460px){
     .hero-copy h1{ font-size:30px; }
+    .hc-2, .hc-4{ transform:translateY(24px); }
+    .hero-collage{ gap:10px; padding-bottom:30px; }
+    .hero-feature{ padding:8px 14px 8px 8px; }
+    .hero-feature img{ width:52px; height:40px; }
+    .hero-feature .hf-t{ font-size:14px; }
     .nav-right > .btn{ padding:8px 14px; font-size:12.5px; white-space:nowrap; box-shadow:0 6px 14px -8px rgba(200,80,31,0.5); }
     .brand-logo{ height:38px; }
     .contact-panel{ padding:28px 16px; }
@@ -578,6 +629,9 @@
     .hero-social a:hover{ transform:translateY(-2px); background:var(--sage); }
     .skill-card:hover{ transform:translateY(-4px); box-shadow:0 20px 34px -20px rgba(0,0,0,0.25); }
     .work-card:hover{ transform:translateY(-4px); }
+    .hc:hover img{ transform:scale(1.04); }
+    .cs-media:hover img{ transform:scale(1.03); }
+    .hero-feature:hover{ border-color:var(--sage-dark); }
     .video-card:hover{ transform:translateY(-4px); }
     .video-card:hover .play-ic{ transform:scale(1.08); }
     .contact-card a.action:hover{ background:var(--cream); }
@@ -652,6 +706,7 @@
       <a href="#about" onclick="closeMenu()">About</a>
       <a href="#skills" onclick="closeMenu()">Skills</a>
       <a href="#work" onclick="closeMenu()">Work</a>
+      <a href="#case-studies" onclick="closeMenu()">Case Study</a>
       <a href="#video-gallery" onclick="closeMenu()">Videos</a>
       <a href="#process" onclick="closeMenu()">Approach</a>
       <a href="#contact" onclick="closeMenu()">Contact</a>
@@ -685,10 +740,17 @@
 
       </div>
       <div class="hero-visual">
-        <div class="photo-ring">
-          <div class="photo-ring-inner"><img src="hero-portrait.jpg" alt="Portrait of Younas Khan, founder of Veyra Graphics Hub" width="760" height="760" fetchpriority="high" decoding="async"></div>
-        </div>
+        <a class="hero-collage" href="#work" aria-label="See our recent projects">
+          <span class="hc hc-1"><img src="work/headphone-poster.jpg" alt="Headphone campaign poster" width="736" height="920" fetchpriority="high" decoding="async"></span>
+          <span class="hc hc-2"><img src="work/amarcord-vanilla.jpg" alt="Amarcord Vanilla candle and room spray packaging" width="1080" height="1350" decoding="async"></span>
+          <span class="hc hc-3"><img src="work/mud-milk-body-love.jpg" alt="Mud &amp; Milk body butter campaign" width="682" height="852" decoding="async"></span>
+          <span class="hc hc-4"><img src="work/rubkal-hang-tags.jpg" alt="Rubkal brand hang tags" width="600" height="695" decoding="async"></span>
+        </a>
         <div class="float-badge top"><span class="n">7+ Years Experience</span></div>
+        <a class="hero-feature" href="case-studies/malaika-perfume.html">
+          <img src="case-studies/malaika/cover-thumb.jpg" alt="" width="64" height="48" decoding="async">
+          <span><span class="hf-l">Featured case study</span><span class="hf-t">Malaika Perfume packaging &rarr;</span></span>
+        </a>
       </div>
     </div>
   </div>
@@ -944,6 +1006,37 @@
         </span>
       </button>
     </div>
+  </div>
+</section>
+
+<section class="case-studies" id="case-studies">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Case study</span>
+      <h2>Inside a Project</h2>
+      <p>A closer look at how we take a brief from flat dielines to finished, presentation-ready packaging.</p>
+    </div>
+    <article class="cs-card">
+      <a class="cs-media" href="case-studies/malaika-perfume.html" aria-label="Open the Malaika Perfume case study">
+        <img src="case-studies/malaika/cover.jpg" alt="Malaika Perfume window carton, product box and round sticker" width="1200" height="900" loading="lazy" decoding="async">
+        <span class="tag">Concept render</span>
+      </a>
+      <div class="cs-body">
+        <span class="cs-kicker">Structural packaging &middot; Perfume</span>
+        <h3>Malaika Perfume</h3>
+        <p>Malaika needed retail packaging that would make a round branded sticker feel like a premium fragrance gift. We designed a four-part nested system: a window carton, a chair insert, a 3 &times; 3 in product box and the sticker itself, all built on the client's original dielines.</p>
+        <ul class="cs-points">
+          <li>Every fit checked against the dieline measurements</li>
+          <li>Print-ready artwork with a separate gold foil layer</li>
+          <li>3D concept renders and a sample checklist before production</li>
+        </ul>
+        <div class="cs-chips"><span>Dielines</span><span>Insert design</span><span>Artwork</span><span>3D visualisation</span></div>
+        <div class="cs-actions">
+          <a class="btn btn-clay" href="case-studies/malaika-perfume.html">Read the full case study</a>
+          <span class="cs-meta">18-page case study</span>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
