@@ -558,7 +558,7 @@
 
   @media (max-width: 1180px) and (min-width: 981px){
     .nav-links{ gap:2px; }
-    .nav-links a{ padding:8px 11px; font-size:14px; }
+    .nav-links a{ padding:8px 9px; font-size:13.5px; }
     .nav-right > .btn{ padding:12px 20px; font-size:14px; }
     .work-grid{ grid-template-columns:repeat(2,1fr); }
     .video-grid{ grid-template-columns:repeat(2,1fr); }
@@ -637,6 +637,84 @@
     .contact-card a.action:hover{ background:var(--cream); }
   }
 
+  /* Keep the hidden attribute working on elements styled with display (e.g. .btn) */
+  [hidden]{ display:none !important; }
+
+  /* STARTING-FROM PRICES */
+  .skill-price{
+    display:inline-block;
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:13px;
+    color:var(--clay-dark);
+    background:rgba(225,104,59,0.08);
+    padding:4px 10px;
+    border-radius:100px;
+    margin-bottom:14px;
+  }
+
+  /* FAQ */
+  .faq{ background:#F3EBD9; padding:56px 0 64px; }
+  .faq-grid{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; align-items:start; }
+  .faq-item{
+    background:var(--cream-2); border:1px solid var(--line); border-radius:var(--radius-md);
+    padding:20px 24px; transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .faq-item[open]{ border-color:var(--sage-dark); box-shadow:0 14px 28px -22px rgba(51,72,47,0.5); }
+  .faq-item summary{
+    list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:16px;
+    font-family:'Fraunces',serif; font-weight:600; font-size:16.5px; color:var(--forest); line-height:1.35;
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary:focus-visible{ outline:2px solid var(--forest); outline-offset:4px; border-radius:6px; }
+  .faq-item summary svg{ width:18px; height:18px; flex-shrink:0; color:var(--sage-dark); transition:transform .25s ease; }
+  .faq-item[open] summary svg{ transform:rotate(180deg); }
+  .faq-item p{ margin-top:12px; font-size:14.5px; line-height:1.65; color:var(--ink-soft); }
+
+  /* BOOKING LINK (contact) */
+  .contact-booking{ text-align:center; color:var(--sage-text); font-size:14px; margin:14px 0 24px; font-weight:600; }
+  .contact-booking a{ color:var(--sage-dark); text-decoration:underline; text-underline-offset:3px; }
+
+  /* WHATSAPP FLOAT */
+  .wa-float{
+    position:fixed; right:20px;
+    bottom:calc(20px + env(safe-area-inset-bottom));
+    width:56px; height:56px; border-radius:50%;
+    background:#25D366; color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 12px 24px -8px rgba(0,0,0,0.35);
+    z-index:80; transition:transform .2s ease, bottom .25s ease, opacity .2s ease;
+  }
+  .wa-float svg{ width:28px; height:28px; }
+  .wa-float:hover{ transform:scale(1.06); }
+  @media (max-width:460px){
+    .wa-float{ right:14px; width:50px; height:50px; }
+  }
+  body.modal-open .wa-float{ opacity:0; pointer-events:none; }
+
+  /* MOBILE STICKY CTA */
+  .mobile-cta{
+    display:none; position:fixed; left:0; right:0; bottom:0;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(251,247,236,0.95);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);
+    z-index:70;
+    transform:translateY(100%);
+    transition:transform .25s ease;
+  }
+  .mobile-cta.show{ transform:translateY(0); }
+  .mobile-cta .btn{ width:100%; }
+  @media (max-width:768px){
+    .mobile-cta{ display:block; }
+    body.modal-open .mobile-cta{ transform:translateY(100%); }
+    /* lift the WhatsApp button and toast above the sticky bar while it is showing */
+    body.cta-visible .wa-float{ bottom:calc(84px + env(safe-area-inset-bottom)); }
+    body.cta-visible #emailToast{ bottom:calc(92px + env(safe-area-inset-bottom)); }
+    footer{ padding-bottom:calc(96px + env(safe-area-inset-bottom)); }
+    .faq-grid{ grid-template-columns:1fr; }
+  }
+
   #emailToast{
     position:fixed; left:50%; bottom:28px; transform:translateX(-50%) translateY(20px);
     background:var(--forest); color:#fff; padding:13px 22px; border-radius:100px;
@@ -692,6 +770,78 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does a brand identity project take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most brand identity projects take 3–5 weeks from the agreed brief to final files, depending on scope and how quickly feedback comes back."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does packaging design take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typically 2–3 weeks for a label, and 4–6 weeks for a full structural packaging system with dielines and inserts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's included in a project price?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every project includes a written brief, initial concepts, the agreed rounds of revisions and final files in the formats you need. Brand identity projects also include a short set of usage guidelines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many rounds of revisions are included?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two rounds of revisions are standard. Additional rounds are quoted separately before any extra work starts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with US/UK clients?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We work remote-first with clients worldwide. We're based in GMT+3, which overlaps with UK working hours and the US East Coast morning, and we reply within 1–2 business days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who owns the final files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You own the approved final deliverables once the project is paid in full. Editable source files (AI/PSD) are available at an additional cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you coordinate printing or manufacturing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We supply print-ready files and dielines, and we can liaise directly with your printer or manufacturer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's your typical starting budget?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Brand identity starts from $1,800, packaging from $1,200, editorial design from $900 and campaign artwork from $600. Every project is quoted once we've seen the brief."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
@@ -709,6 +859,7 @@
       <a href="#case-studies" onclick="closeMenu()">Case Study</a>
       <a href="#video-gallery" onclick="closeMenu()">Videos</a>
       <a href="#process" onclick="closeMenu()">Approach</a>
+      <a href="#faq" onclick="closeMenu()">FAQ</a>
       <a href="#contact" onclick="closeMenu()">Contact</a>
     </nav>
     <div class="nav-right" style="display:flex; align-items:center; gap:10px;">
@@ -736,6 +887,8 @@
         <p class="hero-availability">Currently accepting new projects for Q1 2027.</p>
         <div class="hero-actions">
           <a class="btn btn-outline js-email-link" href="mailto:ys.khan124366@gmail.com?subject=New%20project%20inquiry">Start a Project</a>
+          <!-- TODO: replace "veyra/intro" with your real Cal.com handle once created, then delete the word "hidden" to show this button -->
+          <a class="btn btn-clay" href="https://cal.com/veyra/intro" target="_blank" rel="noopener noreferrer" hidden>Book a 20-min intro call</a>
         </div>
 
       </div>
@@ -820,6 +973,8 @@
         <div class="skill-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
         <h3>Brand Identity</h3>
         <div class="desc">Logos, type systems, and visual guidelines built to last.</div>
+        <!-- TODO: edit prices to your real starting rates -->
+        <div class="skill-price">From $1,800</div>
         <ul class="skill-check">
           <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span> Logo design</li>
           <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span> Style guides</li>
@@ -830,6 +985,7 @@
         <div class="skill-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
         <h3>Editorial Design</h3>
         <div class="desc">Magazine covers and layouts with strong typographic presence.</div>
+        <div class="skill-price">From $900</div>
         <ul class="skill-check">
           <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span> Magazine covers</li>
           <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span> Layout design</li>
@@ -840,6 +996,7 @@
         <div class="skill-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2"/><path d="M5 16.5c.6-1.2 1.7-2 3-2s2.4.8 3 2"/><line x1="14" y1="10" x2="19" y2="10"/><line x1="14" y1="14" x2="19" y2="14"/></svg></div>
         <h3>Personal Branding</h3>
         <div class="desc">Bio and intro pages that give a portfolio its first impression.</div>
+        <div class="skill-price">From $1,200</div>
         <ul class="skill-check">
           <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span> Bio pages</li>
           <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span> Portfolio design</li>
@@ -850,6 +1007,7 @@
         <div class="skill-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
         <h3>Campaign Artwork</h3>
         <div class="desc">Seasonal and promotional design built to catch the eye.</div>
+        <div class="skill-price">From $600</div>
         <ul class="skill-check">
           <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span> Social campaigns</li>
           <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></span> Ad creatives</li>
@@ -1153,6 +1311,51 @@
   </div>
 </section>
 
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Common questions</span>
+      <h2>Before You Get in Touch</h2>
+      <p>Quick answers to what most clients ask first.</p>
+    </div>
+    <!-- TODO: timelines and starting prices below are editable placeholders — keep them in sync with the skill cards and the FAQ JSON-LD in <head> -->
+    <div class="faq-grid">
+      <details class="faq-item">
+        <summary>How long does a brand identity project take? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p>Most brand identity projects take 3–5 weeks from the agreed brief to final files, depending on scope and how quickly feedback comes back.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long does packaging design take? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p>Typically 2–3 weeks for a label, and 4–6 weeks for a full structural packaging system with dielines and inserts.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's included in a project price? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p>Every project includes a written brief, initial concepts, the agreed rounds of revisions and final files in the formats you need. Brand identity projects also include a short set of usage guidelines.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How many rounds of revisions are included? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p>Two rounds of revisions are standard. Additional rounds are quoted separately before any extra work starts.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you work with US/UK clients? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p>Yes. We work remote-first with clients worldwide. We're based in GMT+3, which overlaps with UK working hours and the US East Coast morning, and we reply within 1–2 business days.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Who owns the final files? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p>You own the approved final deliverables once the project is paid in full. Editable source files (AI/PSD) are available at an additional cost.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you coordinate printing or manufacturing? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p>Yes. We supply print-ready files and dielines, and we can liaise directly with your printer or manufacturer.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's your typical starting budget? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p>Brand identity starts from $1,800, packaging from $1,200, editorial design from $900 and campaign artwork from $600. Every project is quoted once we've seen the brief.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section class="contact-section starfield" id="contact">
   <div class="wrap">
     <div class="contact-panel">
@@ -1161,6 +1364,11 @@
         <h2>Let's Work Together</h2>
         <!-- AVAILABILITY: keep in sync with the hero line -->
         <p>Have a project in mind? Currently accepting new projects for Q1 2027.</p>
+        <!-- TODO: replace "veyra/intro" with your real Cal.com handle once created, then delete the word "hidden" to show this line -->
+        <p class="contact-booking" hidden>
+          Prefer to talk first?
+          <a href="https://cal.com/veyra/intro" target="_blank" rel="noopener noreferrer">Book a free 20-min intro call →</a>
+        </p>
       </div>
       <div class="contact-cols">
         <div class="contact-card">
@@ -1301,6 +1509,7 @@
     currentVideoTitle = title || '';
     videoModalTitle.textContent = currentVideoTitle;
     videoModal.classList.add('open');
+    document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
     loadAndPlay(src);
   }
@@ -1310,6 +1519,7 @@
     videoModalPlayer.load();
     hideVideoStatus();
     videoModal.classList.remove('open');
+    document.body.classList.remove('modal-open');
     document.body.style.overflow = '';
   }
 
@@ -1351,10 +1561,12 @@
     imageModalPic.alt = alt || title || '';
     imageModalTitle.textContent = title || '';
     imageModal.classList.add('open');
+    document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
   }
   function closeImageModal(){
     imageModal.classList.remove('open');
+    document.body.classList.remove('modal-open');
     imageModalPic.removeAttribute('src');
     document.body.style.overflow = '';
   }
@@ -1441,7 +1653,32 @@
       }
     });
   });
+
+  // Mobile sticky CTA: shows after user scrolls past the hero
+  // (runs on DOMContentLoaded because the bar sits after this script in the page)
+  document.addEventListener('DOMContentLoaded', function(){
+    const cta = document.getElementById('mobileCta');
+    const hero = document.getElementById('home');
+    if (!cta || !hero || !('IntersectionObserver' in window)) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      const show = !entry.isIntersecting;
+      cta.classList.toggle('show', show);
+      document.body.classList.toggle('cta-visible', show);
+    }, {threshold: 0});
+    obs.observe(hero);
+  });
 </script>
+
+<a href="https://wa.me/966567261940"
+   class="wa-float"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Chat with Veyra Graphics Hub on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6a9.4 9.4 0 0 0-8.1 14.1L2.6 21.4l4.8-1.3A9.4 9.4 0 1 0 12 2.6z" fill="none" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M16.7 13.55c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.4-.48.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.48-.07-.14-.61-1.46-.83-2-.22-.53-.44-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.63 1.11 2.81.14.18 1.92 2.93 4.65 4.11.65.28 1.16.45 1.55.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.29.23-.63.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32z" fill="#fff"/></svg>
+</a>
+
+<div class="mobile-cta" id="mobileCta">
+  <a href="#contact" class="btn btn-clay">Start a Project →</a>
+</div>
 
 </body>
 </html>

@@ -2,40 +2,293 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Privacy Policy — Veyra Graphics Hub</title>
-<meta name="robots" content="noindex,follow">
+<meta name="description" content="How Veyra Graphics Hub collects, uses and protects the information you send us through our website and inquiry form.">
+<meta name="author" content="Younas Khan">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://yskhan124366.github.io/veyra-graphics-hub/privacy.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Veyra Graphics Hub">
+<meta property="og:title" content="Privacy Policy — Veyra Graphics Hub">
+<meta property="og:description" content="How Veyra Graphics Hub collects, uses and protects the information you send us through our website and inquiry form.">
+<meta property="og:url" content="https://yskhan124366.github.io/veyra-graphics-hub/privacy.html">
+<meta property="og:image" content="https://yskhan124366.github.io/veyra-graphics-hub/og-image.jpg">
 <meta name="theme-color" content="#F6EFDF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  body{ margin:0; font-family:'Manrope',sans-serif; background:#F6EFDF; color:#2C2A22; line-height:1.7; }
-  .wrap{ max-width:720px; margin:0 auto; padding:48px 24px 72px; }
-  a{ color:#33482F; font-weight:700; }
-  h1,h2{ font-family:'Fraunces',serif; font-weight:600; color:#33482F; }
-  h1{ font-size:34px; margin:28px 0 6px; }
-  h2{ font-size:20px; margin:30px 0 6px; }
-  p,li{ color:#5B5A4C; font-size:15px; }
-  .updated{ font-size:13px; }
+  :root{
+    --cream:#F6EFDF;
+    --cream-2:#FBF7EC;
+    --sage:#A9BC96;
+    --sage-dark:#6E8A5C;
+    --sage-text:#4F6641; /* darker sage for small text: 5.5:1+ on cream (was 3.4:1) */
+    --forest:#33482F;
+    --ink:#2C2A22;
+    --ink-soft:#5B5A4C;
+    --clay:#E1683B;
+    --clay-dark:#C8501F;
+    --line: rgba(44,42,34,0.12);
+    --radius-lg: 32px;
+    --radius-md: 20px;
+    --radius-sm: 12px;
+    --header-h:110px;
+  }
+  @media (max-width:980px){ :root{ --header-h:90px; } }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+  body{
+    margin:0;
+    font-family:'Manrope', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  ul{margin:0; padding:0; list-style:none;}
+  img{max-width:100%; display:block;}
+  .skip-link{
+    position:absolute; left:16px; top:-100px; z-index:400;
+    background:var(--forest); color:#fff; padding:12px 20px; border-radius:100px;
+    font-weight:700; font-size:14px; transition:top .2s ease;
+  }
+  .skip-link:focus{ top:12px; outline:2px solid var(--clay); outline-offset:2px; }
+  button:focus-visible{ outline:2px solid var(--forest); outline-offset:3px; }
+  .wrap{max-width:1240px; margin:0 auto; padding:0 32px;}
+  .btn{
+    white-space:nowrap; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:15px 30px; border-radius:100px; font-weight:700; font-size:15px;
+    cursor:pointer; border:none; transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .btn:focus-visible{ outline:2px solid var(--forest); outline-offset:3px; }
+  a:focus-visible{ outline:2px solid var(--forest); outline-offset:2px; border-radius:4px; }
+  .btn-clay{background:var(--clay); color:#fff; box-shadow:0 10px 24px -8px rgba(200,80,31,0.55);}
+  .btn-outline{background:transparent; color:var(--forest); border:2px solid var(--forest);}
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,239,223,0.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    padding-left:env(safe-area-inset-left);
+    padding-right:env(safe-area-inset-right);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; gap:16px;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-logo{ height:44px; width:auto; display:block; }
+  .nav-links{display:flex; align-items:center; gap:8px;}
+  .nav-links a{
+    white-space:nowrap; font-size:14.5px; font-weight:700; color:var(--ink-soft); padding:9px 16px; border-radius:100px;
+    transition:background .2s ease, color .2s ease;
+  }
+  .nav-right{ display:flex; align-items:center; gap:12px; }
+  .burger{
+    display:none; flex-direction:column; gap:5px; cursor:pointer; padding:13px; margin:-13px 0 -13px -13px; z-index:60;
+    justify-content:center; align-items:center;
+    background:none; border:none; -webkit-appearance:none; appearance:none; font:inherit;
+  }
+  .burger span{width:22px; height:2px; background:var(--ink); transition:transform .25s ease, opacity .25s ease;}
+  .burger.active span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .burger.active span:nth-child(2){ opacity:0; }
+  .burger.active span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  footer{ background:#DDD0B3; padding:32px 0 calc(40px + env(safe-area-inset-bottom)); }
+  .footer-legal{ padding:14px 6px 0; font-size:13px; color:var(--ink-soft); }
+  .footer-legal a{ text-decoration:underline; text-underline-offset:3px; }
+  .footer-bottom{ display:flex; align-items:center; justify-content:space-between; padding:26px 6px 0; font-size:13px; color:var(--ink-soft); flex-wrap:wrap; gap:10px; }
+
+  /* LEGAL PAGE */
+  .legal{ padding:56px 0 80px; }
+  .legal article{ max-width:780px; margin:0 auto; }
+  .legal .eyebrow{ display:inline-flex; font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--sage-text); }
+  .legal h1{ font-size:44px; line-height:1.1; color:var(--forest); margin:10px 0 10px; }
+  .legal .updated{ font-size:13.5px; font-weight:700; color:var(--ink-soft); }
+  .legal .notice{
+    margin:26px 0 8px; padding:16px 20px; border-radius:var(--radius-sm);
+    background:var(--cream-2); border:1px solid var(--line); border-left:4px solid var(--sage-dark);
+    font-size:14px; line-height:1.6; color:var(--ink-soft);
+  }
+  .legal h2{ font-size:24px; color:var(--forest); margin:40px 0 12px; }
+  .legal p, .legal li{ font-size:15.5px; line-height:1.75; color:var(--ink-soft); }
+  .legal p + p{ margin-top:12px; }
+  .legal ul{ margin:10px 0 0; padding-left:0; display:flex; flex-direction:column; gap:8px; }
+  .legal ul li{ position:relative; padding-left:22px; }
+  .legal ul li::before{ content:""; position:absolute; left:4px; top:11px; width:7px; height:7px; border-radius:50%; background:var(--sage-dark); }
+  .legal strong{ color:var(--ink); }
+  .legal a.inline{ color:var(--forest); font-weight:700; text-decoration:underline; text-underline-offset:3px; }
+  .legal .back{ margin-top:48px; display:flex; gap:12px; flex-wrap:wrap; }
+
+  @media (max-width: 1180px) and (min-width: 981px){
+    .nav-links{ gap:2px; }
+    .nav-links a{ padding:8px 9px; font-size:13.5px; }
+    .nav-right > .btn{ padding:12px 20px; font-size:14px; }
+  }
+  @media (max-width: 980px){
+    .nav-links{
+      display:none; position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; align-items:flex-start; gap:0;
+      background:var(--cream-2); border-bottom:1px solid var(--line);
+      box-shadow:0 16px 30px -18px rgba(0,0,0,0.25);
+    }
+    .nav-links.open{ display:flex; }
+    .nav-links a{
+      width:100%; padding:16px 24px; border-bottom:1px solid var(--line);
+      box-sizing:border-box; border-radius:0;
+    }
+    .burger{display:flex;}
+    .nav-right > .btn{ padding:11px 18px; font-size:13.5px; }
+    .wrap{padding:0 20px;}
+    .nav{ gap:12px; padding-top:14px; padding-bottom:14px; }
+    .legal h1{ font-size:34px; }
+  }
+  @media (max-width: 460px){
+    .nav-right > .btn{ padding:8px 14px; font-size:12.5px; white-space:nowrap; box-shadow:0 6px 14px -8px rgba(200,80,31,0.5); }
+    .brand-logo{ height:38px; }
+    .legal{ padding:40px 0 64px; }
+    .legal h1{ font-size:30px; }
+    .legal h2{ font-size:21px; margin-top:32px; }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover{transform:translateY(-2px);}
+    .btn-clay:hover{background:var(--clay-dark);}
+    .btn-outline:hover{background:var(--forest); color:#fff;}
+    .nav-links a:hover{ background:var(--cream-2); color:var(--forest); }
+  }
 </style>
 </head>
 <body>
-<main class="wrap">
-  <a href="./"><img src="veyra-logo.svg" alt="Veyra Graphics Hub — back to home" width="137" height="44"></a>
-  <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: November 2026</p>
-  <p>This page explains what information Veyra Graphics Hub (founded by Younas Khan) collects through this website and how it is used.</p>
-  <h2>What is collected</h2>
-  <p>Only what you choose to send: your name, email address, project details and budget range when you use the inquiry form, or anything you include when you contact us by email, WhatsApp, Upwork or LinkedIn.</p>
-  <h2>How it is used</h2>
-  <p>Your details are used only to reply to your inquiry and to discuss or deliver your project. They are never sold or shared for marketing.</p>
-  <h2>Third-party services</h2>
-  <p>Form messages may be delivered through a form service (such as Formspree), and this site loads fonts from Google Fonts and is hosted on GitHub Pages. These services may process basic technical data such as your IP address under their own privacy policies.</p>
-  <h2>Your choices</h2>
-  <p>You can ask to see, correct or delete the information you sent at any time by emailing <a href="mailto:ys.khan124366@gmail.com">ys.khan124366@gmail.com</a>.</p>
-  <p><a href="./">← Back to Veyra Graphics Hub</a></p>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header>
+  <div class="nav wrap">
+    <a class="brand" href="index.html" aria-label="Veyra Graphics Hub home">
+      <img src="veyra-logo.svg" alt="Veyra Graphics Hub" class="brand-logo" width="137" height="44" decoding="async">
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="index.html#home" onclick="closeMenu()">Home</a>
+      <a href="index.html#about" onclick="closeMenu()">About</a>
+      <a href="index.html#skills" onclick="closeMenu()">Skills</a>
+      <a href="index.html#work" onclick="closeMenu()">Work</a>
+      <a href="index.html#case-studies" onclick="closeMenu()">Case Study</a>
+      <a href="index.html#video-gallery" onclick="closeMenu()">Videos</a>
+      <a href="index.html#process" onclick="closeMenu()">Approach</a>
+      <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
+      <a href="index.html#contact" onclick="closeMenu()">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-clay" href="index.html#contact">Start a Project</a>
+      <button class="burger" id="burgerBtn" onclick="toggleMenu()" type="button" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1" class="legal">
+  <div class="wrap">
+    <article>
+      <span class="eyebrow">Legal</span>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: November 2026</p>
+      <p class="notice">This is a starter policy reviewed for plain-language clarity. For full legal compliance, have a lawyer review it before publishing.</p>
+
+      <h2>Who we are</h2>
+      <p>Veyra Graphics Hub is an independent design agency founded by Younas Khan. We design brand identity, packaging, editorial and campaign work for clients worldwide. You can reach us at <a class="inline" href="mailto:ys.khan124366@gmail.com">ys.khan124366@gmail.com</a>.</p>
+      <p>This website is hosted on GitHub Pages, a service run by GitHub, Inc.</p>
+
+      <h2>What we collect</h2>
+      <ul>
+        <li><strong>Inquiry form:</strong> when you use the form on our website, we receive your name, email address, project type, budget range and message. The form is processed by Formspree.</li>
+        <li><strong>Messages you send us:</strong> anything you include when you contact us by email, WhatsApp, Upwork or LinkedIn.</li>
+        <li><strong>Server logs:</strong> GitHub Pages keeps standard technical logs, such as IP address, browser type and pages visited, to run and secure the service.</li>
+        <li><strong>Cookies:</strong> we do not currently set any cookies, and we do not use analytics or advertising trackers.</li>
+      </ul>
+
+      <h2>How we use it</h2>
+      <ul>
+        <li>To reply to your inquiry and prepare a quote.</li>
+        <li>To plan, deliver and invoice the work you hire us for.</li>
+        <li>We do not send marketing emails without your consent.</li>
+        <li>We never sell your personal information.</li>
+      </ul>
+
+      <h2>Who we share it with</h2>
+      <p>We only share information with the services we need to run this website and our work:</p>
+      <ul>
+        <li><strong>Formspree</strong> receives inquiry form submissions and forwards them to us.</li>
+        <li><strong>GitHub Pages</strong> hosts this website.</li>
+        <li><strong>Google (Gmail)</strong> is our email provider. Our website fonts are also loaded from Google Fonts, which means Google can see your IP address when the page loads.</li>
+        <li><strong>WhatsApp, Upwork and LinkedIn</strong> handle any messages you choose to send us there, under their own privacy policies.</li>
+      </ul>
+      <p>We do not share your information with advertisers.</p>
+
+      <h2>Your rights (GDPR / CCPA)</h2>
+      <p>Depending on where you live, you may have the right to:</p>
+      <ul>
+        <li>access the personal information we hold about you;</li>
+        <li>correct information that is wrong or incomplete;</li>
+        <li>ask us to delete your information;</li>
+        <li>receive a copy of your information in a portable format.</li>
+      </ul>
+      <p>To make a request, email <a class="inline" href="mailto:ys.khan124366@gmail.com">ys.khan124366@gmail.com</a>. We will respond within 30 days. You will not be treated differently for exercising any of these rights.</p>
+
+      <h2>Data retention</h2>
+      <ul>
+        <li>Inquiries are kept for up to 24 months, unless you become a client.</li>
+        <li>Project files and related messages for clients are kept for 5 years.</li>
+      </ul>
+      <p>After these periods, we delete the information or keep it only in a form that no longer identifies you.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy or your information? Email <a class="inline" href="mailto:ys.khan124366@gmail.com">ys.khan124366@gmail.com</a>.</p>
+
+      <div class="back">
+        <a class="btn btn-outline" href="index.html">&larr; Back to home</a>
+        <a class="btn btn-clay" href="index.html#contact">Start a Project</a>
+      </div>
+    </article>
+  </div>
 </main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom">
+      <div>© 2026 Veyra Graphics Hub</div>
+      <div>Graphic Design &amp; Visual Identity</div>
+    </div>
+    <nav class="footer-legal" aria-label="Legal">
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu(){
+    const links = document.getElementById('navLinks');
+    const btn = document.getElementById('burgerBtn');
+    const open = links.classList.toggle('open');
+    btn.classList.toggle('active', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function closeMenu(){
+    document.getElementById('navLinks').classList.remove('open');
+    const btn = document.getElementById('burgerBtn');
+    btn.classList.remove('active');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  document.addEventListener('touchstart', function(){}, {passive:true});
+</script>
 </body>
 </html>

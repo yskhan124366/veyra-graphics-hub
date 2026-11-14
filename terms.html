@@ -2,38 +2,284 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Use — Veyra Graphics Hub</title>
-<meta name="robots" content="noindex,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Terms of Service — Veyra Graphics Hub</title>
+<meta name="description" content="Terms for working with Veyra Graphics Hub: quotes, payment, revisions, ownership of files and cancellation.">
+<meta name="author" content="Younas Khan">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://yskhan124366.github.io/veyra-graphics-hub/terms.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Veyra Graphics Hub">
+<meta property="og:title" content="Terms of Service — Veyra Graphics Hub">
+<meta property="og:description" content="Terms for working with Veyra Graphics Hub: quotes, payment, revisions, ownership of files and cancellation.">
+<meta property="og:url" content="https://yskhan124366.github.io/veyra-graphics-hub/terms.html">
+<meta property="og:image" content="https://yskhan124366.github.io/veyra-graphics-hub/og-image.jpg">
 <meta name="theme-color" content="#F6EFDF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  body{ margin:0; font-family:'Manrope',sans-serif; background:#F6EFDF; color:#2C2A22; line-height:1.7; }
-  .wrap{ max-width:720px; margin:0 auto; padding:48px 24px 72px; }
-  a{ color:#33482F; font-weight:700; }
-  h1,h2{ font-family:'Fraunces',serif; font-weight:600; color:#33482F; }
-  h1{ font-size:34px; margin:28px 0 6px; }
-  h2{ font-size:20px; margin:30px 0 6px; }
-  p,li{ color:#5B5A4C; font-size:15px; }
-  .updated{ font-size:13px; }
+  :root{
+    --cream:#F6EFDF;
+    --cream-2:#FBF7EC;
+    --sage:#A9BC96;
+    --sage-dark:#6E8A5C;
+    --sage-text:#4F6641; /* darker sage for small text: 5.5:1+ on cream (was 3.4:1) */
+    --forest:#33482F;
+    --ink:#2C2A22;
+    --ink-soft:#5B5A4C;
+    --clay:#E1683B;
+    --clay-dark:#C8501F;
+    --line: rgba(44,42,34,0.12);
+    --radius-lg: 32px;
+    --radius-md: 20px;
+    --radius-sm: 12px;
+    --header-h:110px;
+  }
+  @media (max-width:980px){ :root{ --header-h:90px; } }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+  body{
+    margin:0;
+    font-family:'Manrope', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  ul{margin:0; padding:0; list-style:none;}
+  img{max-width:100%; display:block;}
+  .skip-link{
+    position:absolute; left:16px; top:-100px; z-index:400;
+    background:var(--forest); color:#fff; padding:12px 20px; border-radius:100px;
+    font-weight:700; font-size:14px; transition:top .2s ease;
+  }
+  .skip-link:focus{ top:12px; outline:2px solid var(--clay); outline-offset:2px; }
+  button:focus-visible{ outline:2px solid var(--forest); outline-offset:3px; }
+  .wrap{max-width:1240px; margin:0 auto; padding:0 32px;}
+  .btn{
+    white-space:nowrap; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:15px 30px; border-radius:100px; font-weight:700; font-size:15px;
+    cursor:pointer; border:none; transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .btn:focus-visible{ outline:2px solid var(--forest); outline-offset:3px; }
+  a:focus-visible{ outline:2px solid var(--forest); outline-offset:2px; border-radius:4px; }
+  .btn-clay{background:var(--clay); color:#fff; box-shadow:0 10px 24px -8px rgba(200,80,31,0.55);}
+  .btn-outline{background:transparent; color:var(--forest); border:2px solid var(--forest);}
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,239,223,0.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    padding-left:env(safe-area-inset-left);
+    padding-right:env(safe-area-inset-right);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; gap:16px;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-logo{ height:44px; width:auto; display:block; }
+  .nav-links{display:flex; align-items:center; gap:8px;}
+  .nav-links a{
+    white-space:nowrap; font-size:14.5px; font-weight:700; color:var(--ink-soft); padding:9px 16px; border-radius:100px;
+    transition:background .2s ease, color .2s ease;
+  }
+  .nav-right{ display:flex; align-items:center; gap:12px; }
+  .burger{
+    display:none; flex-direction:column; gap:5px; cursor:pointer; padding:13px; margin:-13px 0 -13px -13px; z-index:60;
+    justify-content:center; align-items:center;
+    background:none; border:none; -webkit-appearance:none; appearance:none; font:inherit;
+  }
+  .burger span{width:22px; height:2px; background:var(--ink); transition:transform .25s ease, opacity .25s ease;}
+  .burger.active span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .burger.active span:nth-child(2){ opacity:0; }
+  .burger.active span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  footer{ background:#DDD0B3; padding:32px 0 calc(40px + env(safe-area-inset-bottom)); }
+  .footer-legal{ padding:14px 6px 0; font-size:13px; color:var(--ink-soft); }
+  .footer-legal a{ text-decoration:underline; text-underline-offset:3px; }
+  .footer-bottom{ display:flex; align-items:center; justify-content:space-between; padding:26px 6px 0; font-size:13px; color:var(--ink-soft); flex-wrap:wrap; gap:10px; }
+
+  /* LEGAL PAGE */
+  .legal{ padding:56px 0 80px; }
+  .legal article{ max-width:780px; margin:0 auto; }
+  .legal .eyebrow{ display:inline-flex; font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--sage-text); }
+  .legal h1{ font-size:44px; line-height:1.1; color:var(--forest); margin:10px 0 10px; }
+  .legal .updated{ font-size:13.5px; font-weight:700; color:var(--ink-soft); }
+  .legal .notice{
+    margin:26px 0 8px; padding:16px 20px; border-radius:var(--radius-sm);
+    background:var(--cream-2); border:1px solid var(--line); border-left:4px solid var(--sage-dark);
+    font-size:14px; line-height:1.6; color:var(--ink-soft);
+  }
+  .legal h2{ font-size:24px; color:var(--forest); margin:40px 0 12px; }
+  .legal p, .legal li{ font-size:15.5px; line-height:1.75; color:var(--ink-soft); }
+  .legal p + p{ margin-top:12px; }
+  .legal ul{ margin:10px 0 0; padding-left:0; display:flex; flex-direction:column; gap:8px; }
+  .legal ul li{ position:relative; padding-left:22px; }
+  .legal ul li::before{ content:""; position:absolute; left:4px; top:11px; width:7px; height:7px; border-radius:50%; background:var(--sage-dark); }
+  .legal strong{ color:var(--ink); }
+  .legal a.inline{ color:var(--forest); font-weight:700; text-decoration:underline; text-underline-offset:3px; }
+  .legal .back{ margin-top:48px; display:flex; gap:12px; flex-wrap:wrap; }
+
+  @media (max-width: 1180px) and (min-width: 981px){
+    .nav-links{ gap:2px; }
+    .nav-links a{ padding:8px 9px; font-size:13.5px; }
+    .nav-right > .btn{ padding:12px 20px; font-size:14px; }
+  }
+  @media (max-width: 980px){
+    .nav-links{
+      display:none; position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; align-items:flex-start; gap:0;
+      background:var(--cream-2); border-bottom:1px solid var(--line);
+      box-shadow:0 16px 30px -18px rgba(0,0,0,0.25);
+    }
+    .nav-links.open{ display:flex; }
+    .nav-links a{
+      width:100%; padding:16px 24px; border-bottom:1px solid var(--line);
+      box-sizing:border-box; border-radius:0;
+    }
+    .burger{display:flex;}
+    .nav-right > .btn{ padding:11px 18px; font-size:13.5px; }
+    .wrap{padding:0 20px;}
+    .nav{ gap:12px; padding-top:14px; padding-bottom:14px; }
+    .legal h1{ font-size:34px; }
+  }
+  @media (max-width: 460px){
+    .nav-right > .btn{ padding:8px 14px; font-size:12.5px; white-space:nowrap; box-shadow:0 6px 14px -8px rgba(200,80,31,0.5); }
+    .brand-logo{ height:38px; }
+    .legal{ padding:40px 0 64px; }
+    .legal h1{ font-size:30px; }
+    .legal h2{ font-size:21px; margin-top:32px; }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover{transform:translateY(-2px);}
+    .btn-clay:hover{background:var(--clay-dark);}
+    .btn-outline:hover{background:var(--forest); color:#fff;}
+    .nav-links a:hover{ background:var(--cream-2); color:var(--forest); }
+  }
 </style>
 </head>
 <body>
-<main class="wrap">
-  <a href="./"><img src="veyra-logo.svg" alt="Veyra Graphics Hub — back to home" width="137" height="44"></a>
-  <h1>Terms of Use</h1>
-  <p class="updated">Last updated: November 2026</p>
-  <p>These terms cover the use of this website. Each design project is covered by its own written brief or agreement, or by the platform contract (for example Upwork) it was agreed on.</p>
-  <h2>Portfolio work</h2>
-  <p>The designs shown here are examples of past work and remain the property of their respective owners and clients. Please do not copy or reuse them without permission.</p>
-  <h2>Information on this site</h2>
-  <p>Availability, services and timelines shown here are a general guide. The details of any project are confirmed in writing before work begins.</p>
-  <h2>Contact</h2>
-  <p>Questions about these terms? Email <a href="mailto:ys.khan124366@gmail.com">ys.khan124366@gmail.com</a>.</p>
-  <p><a href="./">← Back to Veyra Graphics Hub</a></p>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header>
+  <div class="nav wrap">
+    <a class="brand" href="index.html" aria-label="Veyra Graphics Hub home">
+      <img src="veyra-logo.svg" alt="Veyra Graphics Hub" class="brand-logo" width="137" height="44" decoding="async">
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="index.html#home" onclick="closeMenu()">Home</a>
+      <a href="index.html#about" onclick="closeMenu()">About</a>
+      <a href="index.html#skills" onclick="closeMenu()">Skills</a>
+      <a href="index.html#work" onclick="closeMenu()">Work</a>
+      <a href="index.html#case-studies" onclick="closeMenu()">Case Study</a>
+      <a href="index.html#video-gallery" onclick="closeMenu()">Videos</a>
+      <a href="index.html#process" onclick="closeMenu()">Approach</a>
+      <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
+      <a href="index.html#contact" onclick="closeMenu()">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-clay" href="index.html#contact">Start a Project</a>
+      <button class="burger" id="burgerBtn" onclick="toggleMenu()" type="button" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1" class="legal">
+  <div class="wrap">
+    <article>
+      <span class="eyebrow">Legal</span>
+      <h1>Terms of Service</h1>
+      <p class="updated">Last updated: November 2026</p>
+      <p class="notice">This is a starter policy reviewed for plain-language clarity. For full legal compliance, have a lawyer review it before publishing.</p>
+
+      <h2>Services</h2>
+      <p>Veyra Graphics Hub provides brand identity, packaging, editorial and campaign design. Every project is quoted individually, based on a written brief.</p>
+
+      <h2>Quotes and payment</h2>
+      <ul>
+        <li>A 50% deposit is due before work starts, and the remaining 50% on delivery.</li>
+        <li>Final files are released once the project is paid in full.</li>
+        <li>Payment is by bank transfer or through Upwork. Projects contracted on Upwork follow Upwork's payment and milestone system.</li>
+        <li>Prices are in US dollars (USD) unless agreed otherwise in writing.</li>
+      </ul>
+
+      <h2>Project scope and revisions</h2>
+      <ul>
+        <li>The scope of each project is defined in a written brief that we agree before work starts.</li>
+        <li>Revisions beyond the agreed scope are quoted separately before any extra work begins.</li>
+        <li>Unused revision rounds do not carry forward to later projects.</li>
+      </ul>
+
+      <h2>Intellectual property</h2>
+      <ul>
+        <li>You own the final approved deliverables once the project is paid in full.</li>
+        <li>We may show the work in our portfolio and marketing, unless we have signed a non-disclosure agreement (NDA) with you.</li>
+        <li>Editable source files (for example AI or PSD) are available at an additional cost.</li>
+      </ul>
+
+      <h2>Client responsibilities</h2>
+      <p>You agree to provide a clear brief, any brand assets we need (logos, fonts, photos, dielines), and timely feedback. Delays in receiving these extend the project timeline accordingly.</p>
+
+      <h2>Limitation of liability</h2>
+      <p>Our total liability for any project is limited to the fee paid for that project. We are not responsible for printing or manufacturing errors made by third parties when the files we supplied match the specifications you provided.</p>
+
+      <h2>Cancellation</h2>
+      <p>If a project is cancelled part-way through, the deposit is refunded in proportion to the work that has not yet been delivered.</p>
+
+      <h2>Governing law</h2>
+      <!-- TODO: confirm the governing country with a lawyer; change it here if needed -->
+      <p>These terms are governed by the laws of the Kingdom of Saudi Arabia.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about these terms? Email <a class="inline" href="mailto:ys.khan124366@gmail.com">ys.khan124366@gmail.com</a>.</p>
+
+      <div class="back">
+        <a class="btn btn-outline" href="index.html">&larr; Back to home</a>
+        <a class="btn btn-clay" href="index.html#contact">Start a Project</a>
+      </div>
+    </article>
+  </div>
 </main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom">
+      <div>© 2026 Veyra Graphics Hub</div>
+      <div>Graphic Design &amp; Visual Identity</div>
+    </div>
+    <nav class="footer-legal" aria-label="Legal">
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu(){
+    const links = document.getElementById('navLinks');
+    const btn = document.getElementById('burgerBtn');
+    const open = links.classList.toggle('open');
+    btn.classList.toggle('active', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function closeMenu(){
+    document.getElementById('navLinks').classList.remove('open');
+    const btn = document.getElementById('burgerBtn');
+    btn.classList.remove('active');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  document.addEventListener('touchstart', function(){}, {passive:true});
+</script>
 </body>
 </html>
