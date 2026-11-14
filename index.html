@@ -529,6 +529,13 @@
   }
     .contact-card a.action .ic-img{ width:22px; height:22px; object-fit:contain; flex-shrink:0; }
 
+  .contact-cols.single{ grid-template-columns:1fr; max-width:620px; margin-left:auto; margin-right:auto; }
+  /* START STEPS (contact) */
+  .start-steps{ display:flex; flex-direction:column; gap:12px; margin:4px 0 22px; padding:0; list-style:none; }
+  .start-steps li{ display:flex; align-items:flex-start; gap:12px; font-size:14.5px; line-height:1.55; color:var(--ink); font-weight:600; }
+  .start-steps .num{ width:28px; height:28px; border-radius:50%; background:var(--forest); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:13px; flex-shrink:0; }
+  .start-btn{ margin-bottom:22px; }
+
   /* INQUIRY FORM */
   .inquiry-form{ display:flex; flex-direction:column; gap:14px; margin-bottom:22px; }
   .inquiry-form .row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
@@ -865,8 +872,6 @@
         <p class="hero-availability">Currently accepting new projects for Q1 2027.</p>
         <div class="hero-actions">
           <a class="btn btn-outline" href="#contact">Start a Project</a>
-          <!-- TODO: replace "veyra/intro" with your real Cal.com handle once created, then delete the word "hidden" to show this button -->
-          <a class="btn btn-clay" href="https://cal.com/veyra/intro" target="_blank" rel="noopener noreferrer" hidden>Book a 20-min intro call</a>
         </div>
 
       </div>
@@ -1342,65 +1347,16 @@
         <h2>Let's Work Together</h2>
         <!-- AVAILABILITY: keep in sync with the hero line -->
         <p>Have a project in mind? Currently accepting new projects for Q1 2027.</p>
-        <!-- TODO: replace "veyra/intro" with your real Cal.com handle once created, then delete the word "hidden" to show this line -->
-        <p class="contact-booking" hidden>
-          Prefer to talk first?
-          <a href="https://cal.com/veyra/intro" target="_blank" rel="noopener noreferrer">Book a free 20-min intro call →</a>
-        </p>
       </div>
-      <div class="contact-cols">
+      <div class="contact-cols single">
         <div class="contact-card">
-          <h3>Hire us on Upwork</h3>
-          <a class="action" href="https://www.upwork.com/freelancers/~01aba0df4b78fced18" target="_blank" rel="noopener noreferrer"><span class="ic-img"><img src="data:image/png;base64,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" alt="" width="22" height="22" loading="lazy" decoding="async" style="width:22px;height:22px;"></span> Hire us on Upwork</a>
-        </div>
-        <div class="contact-card">
-          <h3>Tell us about your project</h3>
-          <!-- Form submissions go to Formspree (form ID xzerdyrj). -->
-          <form class="inquiry-form" id="inquiryForm" action="https://formspree.io/f/xzerdyrj" method="POST">
-            <div class="row">
-              <div>
-                <label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
-                <input id="f-name" name="name" type="text" autocomplete="name" enterkeyhint="next" required>
-              </div>
-              <div>
-                <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
-                <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" enterkeyhint="next" required>
-              </div>
-            </div>
-            <div class="row">
-              <div>
-                <label for="f-type">Project type</label>
-                <select id="f-type" name="project_type">
-                  <option>Brand Identity</option>
-                  <option>Packaging</option>
-                  <option>Editorial</option>
-                  <option>Campaign</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div>
-                <label for="f-budget">Budget range</label>
-                <select id="f-budget" name="budget">
-                  <option value="" disabled selected>Select a budget</option>
-                  <option>Under $100</option>
-                  <option>$100 – $300</option>
-                  <option>$300 – $500</option>
-                  <option>$500 – $1,000</option>
-                  <option>$1,000 – $3,000</option>
-                  <option>$3,000 – $8,000</option>
-                  <option>$8,000+</option>
-                  <option>Not sure yet / Flexible</option>
-                </select>
-              </div>
-            </div>
-            <div>
-              <label for="f-message">Message <span class="req" aria-hidden="true">*</span></label>
-              <textarea id="f-message" name="message" required></textarea>
-            </div>
-            <input type="hidden" name="_subject" value="New project inquiry — Veyra Graphics Hub">
-            <button type="submit" class="btn btn-clay">Send inquiry</button>
-            <p class="form-note">Fields marked * are required.</p>
-          </form>
+          <h3>How to start a project</h3>
+          <ol class="start-steps">
+            <li><span class="num" aria-hidden="true">1</span><span>Open our Upwork profile.</span></li>
+            <li><span class="num" aria-hidden="true">2</span><span>Send us your brief, or invite us to your job post.</span></li>
+            <li><span class="num" aria-hidden="true">3</span><span>We reply with questions, a timeline and a quote.</span></li>
+          </ol>
+          <a class="btn btn-clay start-btn" href="https://www.upwork.com/freelancers/~01aba0df4b78fced18" target="_blank" rel="noopener noreferrer">Send your brief on Upwork</a>
           <ul class="contact-list">
             <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span> Available worldwide, remote-first</li>
             <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span> Replies within 1–2 business days</li>
