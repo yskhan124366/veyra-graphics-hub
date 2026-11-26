@@ -291,6 +291,18 @@
 
   /* HERO */
   .hero{ padding:64px 0 76px; position:relative; }
+  /* Brand watermark: leaf icon only, very faint, behind the hero content */
+  .hero::before{
+    content:""; position:absolute; z-index:0; pointer-events:none;
+    width:min(620px, 52vw); aspect-ratio:1/1;
+    left:44%; top:50%; transform:translate(-50%,-50%) rotate(-8deg);
+    background:url("favicon.svg") no-repeat center / contain;
+    opacity:.07;
+  }
+  .hero > .wrap{ position:relative; z-index:1; }
+  @media (max-width:980px){
+    .hero::before{ width:min(440px, 92vw); left:50%; top:30%; opacity:.06; }
+  }
   .hero-grid{ display:grid; grid-template-columns:1fr 0.85fr; gap:56px; align-items:center; }
   .hero-greet{ font-size:16px; font-weight:700; color:var(--clay-dark); margin-bottom:12px; }
   .hero-copy h1{ font-size:50px; line-height:1.08; color:var(--ink); margin-bottom:18px; }
