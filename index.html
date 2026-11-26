@@ -532,6 +532,26 @@
   .process-card p{ font-size:12.5px; color:var(--ink-soft); line-height:1.5; }
 
   /* TESTIMONIALS */
+
+  /* CLIENT REVIEWS (real Upwork feedback) */
+  .reviews{ padding:80px 0; background:var(--cream); }
+  .rv-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; align-items:stretch; }
+  .rv-card{ margin:0; background:var(--cream-2); border:1px solid var(--line); border-radius:22px; padding:28px 26px; display:flex; flex-direction:column; gap:16px; }
+  .rv-stars{ display:flex; align-items:center; gap:3px; color:var(--clay); }
+  .rv-stars svg{ width:17px; height:17px; fill:currentColor; }
+  .rv-stars span{ margin-left:8px; font-size:13px; font-weight:700; color:var(--forest); }
+  .rv-quote{ margin:0; font-family:'Fraunces',serif; font-size:18px; line-height:1.5; color:var(--ink); flex:1; }
+  .rv-meta{ display:flex; flex-direction:column; gap:3px; border-top:1px solid var(--line); padding-top:14px; }
+  .rv-job{ font-size:13.5px; font-weight:700; color:var(--forest); }
+  .rv-src{ font-size:12px; color:var(--ink-soft); }
+  .rv-score{ background:var(--forest); border-color:var(--forest); color:#fff; justify-content:center; }
+  .rv-score .rv-big{ font-family:'Fraunces',serif; font-size:58px; line-height:1; color:#fff; }
+  .rv-score .rv-label{ font-size:14px; font-weight:700; color:var(--sage); letter-spacing:.02em; }
+  .rv-score .rv-stars span{ color:#fff; }
+  .rv-note{ margin:0; font-size:13.5px; color:rgba(255,255,255,.78); }
+  .rv-link{ margin-top:6px; font-size:14px; font-weight:700; color:#fff; text-decoration:underline; text-underline-offset:4px; }
+  .rv-link:hover{ color:var(--sage); }
+  @media (max-width:900px){ .rv-grid{ grid-template-columns:1fr; } .rv-quote{ font-size:17px; } }
   .testimonials{ padding:80px 0; }
   .test-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
   .test-card{ background:var(--cream-2); border:1px solid var(--line); border-radius:22px; padding:28px 26px; }
@@ -1332,6 +1352,34 @@
           <div class="test-avatar" aria-hidden="true">03</div>
           <div><div class="pn">Reliability</div><div class="pr">On time, or told early</div></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews" aria-labelledby="reviews-title">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Client reviews</span>
+      <h2 id="reviews-title">What Our Clients Say</h2>
+    </div>
+    <div class="rv-grid">
+      <figure class="rv-card">
+        <div class="rv-stars" role="img" aria-label="Rated 5.0 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><span>5.0</span></div>
+        <blockquote class="rv-quote">“I had a great experience working with Younas. He delivered a clean, professional design that matched what I needed. Highly recommended.”</blockquote>
+        <figcaption class="rv-meta"><span class="rv-job">Canva design project</span><span class="rv-src">Verified Upwork client · April 2026</span></figcaption>
+      </figure>
+      <figure class="rv-card">
+        <div class="rv-stars" role="img" aria-label="Rated 5.0 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><span>5.0</span></div>
+        <blockquote class="rv-quote">“Thanks for the good work, he did a nice job and did the revisions as we asked”</blockquote>
+        <figcaption class="rv-meta"><span class="rv-job">YouTube channel cover, profile picture and logo</span><span class="rv-src">Verified Upwork client · April 2026</span></figcaption>
+      </figure>
+      <div class="rv-card rv-score">
+        <div class="rv-big">100%</div>
+        <div class="rv-label">Job Success Score on Upwork</div>
+        <div class="rv-stars" role="img" aria-label="Rated 5.0 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><span>5.0</span></div>
+        <p class="rv-note">5.0 average from every client review</p>
+        <a class="rv-link" href="https://www.upwork.com/freelancers/~01aba0df4b78fced18" target="_blank" rel="noopener noreferrer">Read all reviews on Upwork →</a>
       </div>
     </div>
   </div>
