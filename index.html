@@ -496,7 +496,29 @@
   .cs-meta{ font-size:12.5px; font-weight:700; color:var(--ink-soft); }
 
   /* PROCESS BAND (full width bold band, like Education section) */
-  .process-band{ background:var(--sage); padding:70px 0; }
+  .process-band{ background:var(--sage); padding:70px 0; position:relative; overflow:hidden; }
+  .process-band > .wrap{ position:relative; z-index:1; }
+  /* Light leaf-icon pattern sliding left to right */
+  .process-pattern{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+    background:url("process-pattern.svg") repeat;
+    background-size:110px 110px;
+    opacity:.38;
+    animation:processPatternSlide 16s linear infinite;
+    -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+            mask-image:linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  }
+  @keyframes processPatternSlide{
+    from{ background-position:0 0; }
+    to{ background-position:220px 0; }
+  }
+  @media (max-width:980px){
+    .process-pattern{ background-size:90px 90px; animation-duration:13s; }
+    @keyframes processPatternSlide{ from{ background-position:0 0; } to{ background-position:180px 0; } }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .process-pattern{ animation:none; }
+  }
   .process-head{ text-align:center; margin-bottom:44px; }
   .process-head .pill-badge{ background:rgba(255,255,255,0.4); color:var(--forest); border:none; margin-bottom:14px;}
   .process-head h2{ font-size:32px; color:var(--forest); }
@@ -1260,6 +1282,7 @@
 </section>
 
 <section class="process-band" id="process">
+  <div class="process-pattern" aria-hidden="true"></div>
   <div class="wrap">
     <div class="process-head">
       <span class="pill-badge">How We Work</span>
